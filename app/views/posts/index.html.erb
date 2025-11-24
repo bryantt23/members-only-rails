@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All Posts</h1>
+<% if user_signed_in? %>
+    <p>Welcome, <%= current_user.email %>!</p>
+<% else %>
+    <p>Sign in to see secrets</p>
+<% end %>
+
+
+<ul>
+    <% @posts.each do |post| %>
+    <li>
+        <p>Superhero: <%= post.superhero %></p>
+        <p>Secret Identity: 
+            
+        <% if user_signed_in? %>
+            <%= post.secret_identity %>
+        <% else %>
+            It's a secret!
+        <% end %>
+            </p>
+    <% end %>
+</ul>

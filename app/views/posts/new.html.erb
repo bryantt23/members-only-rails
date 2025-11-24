@@ -1,2 +1,11 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create Post</h1>
+
+<%= form_with model: @post, url: "/posts" do |f| %>
+    <%= f.label :superhero %>
+    <%= f.text_field :superhero %><br><br>
+
+    <%= f.label :secret_identity %>
+    <%= f.text_field :secret_identity %><br><br>
+    
+    <%= f.submit "Submit" %>
+<% end %>
